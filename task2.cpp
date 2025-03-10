@@ -1,35 +1,42 @@
 #include<iostream>
 #include <vector>
 class Planet {
-	int position_away_sun, weight_10_24, diameter;
+	int density, weight_10_24, diameter;
 	std::string name;
 public:
 	Planet() {
-		position_away_sun = 3;
-		weight_10_24 = 5, 97;
+		density = 5427;
+		weight_10_24 = 5.97;
 		diameter = 12756;
 		name = "Земля";
 	}
-	void add_parameters() {
-		std::cout << "Введите позицию от солнца: "; std::cin >> position_away_sun;
-		std::cout << "Введите вес в тоннах (10^24): "; std::cin >> weight_10_24;
-		std::cout << "Введите диаметр: "; std::cin >> diameter;
-		std::cout << "Введите название: "; std::cin >> name;
-		std::cout << std::endl;
+
+	void add(int density, int weight_10_24, int diameter, std::string name) {
+		this->density = density;
+		this->weight_10_24 = weight_10_24;
+		this->diameter = diameter;
+		this->name = name;
 	}
+
 	void info() {
-		std::cout << "Планета: " << name << ", " << position_away_sun << "-я планета от солнца, диаметр: "
+		std::cout << "Планета: " << name << ", " << density << "-я планета от солнца, диаметр: "
 			<< diameter << ", вес: " << weight_10_24;
 	}
 };
 
 int main() {
 	system("chcp 1251"); system("cls");
-	std::vector <Planet> planets(7);
+	std::vector <Planet> planets;
 
-	for (int i = 0; i < planets.size(); i++) {
-		planets.at(i).add_parameters();
-	}
+	planets.at(0).add(5427, 0.33, 4873, "Меркурий");
+	planets.at(1).add(3, 5.97, 12756, "Венера");
+	planets.at(2).add(3, 5.97, 12756, "Земля");
+	planets.at(3).add(3, 5.97, 12756, "Земля");
+	planets.at(4).add(3, 5.97, 12756, "Земля");
+	planets.at(5).add(3, 5.97, 12756, "Земля");
+	planets.at(6).add(3, 5.97, 12756, "Земля");
+
+
 	for (int i = 0; i < planets.size(); i++) {
 		planets.at(i).info();
 	}
