@@ -57,7 +57,7 @@ int main() {
 	}
 
 	do {
-	std::cout << "\n1.Вывсти рабочих\n2.Отредактировать рабочего\n3.Удалить рабочего\n>_"; std::cin >> choice;
+	std::cout << "\n1.Вывсти рабочих\n2.Отредактировать рабочего\n3.Добавить рабочего\n4.Удалить рабочего\n>_"; std::cin >> choice;
 	system("cls");
 	switch (choice) {
 	case 1: {
@@ -77,6 +77,11 @@ int main() {
 		break;
 	}
 	case 3: {
+		workers.push_back(Worker(ids));
+		ids++;
+		break;
+	}
+	case 4: {
 		std::cout << "Введите ID рабочего: "; std::cin >> choice_id;
 		for (int i = 0; i < workers.size(); i++) {
 			if (choice_id == workers.at(i).id) {
