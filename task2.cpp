@@ -29,12 +29,12 @@ int main() {
 	std::vector <Planet> planets;
 
 	planets.at(0).add(5427, 0.33, 4873, "Меркурий");
-	planets.at(1).add(3, 5.97, 12756, "Венера");
-	planets.at(2).add(3, 5.97, 12756, "Земля");
-	planets.at(3).add(3, 5.97, 12756, "Земля");
-	planets.at(4).add(3, 5.97, 12756, "Земля");
-	planets.at(5).add(3, 5.97, 12756, "Земля");
-	planets.at(6).add(3, 5.97, 12756, "Земля");
+	planets.at(1).add(5243, 4.87, 12104, "Венера");
+	planets.at(2).add(5515, 5.97, 12756, "Земля");
+	planets.at(3).add(3340, 0.073, 3475, "Луна");
+	planets.at(4).add(3933, 0.642, 6794, "Марс");
+	planets.at(5).add(1326, 1899, 142984, "Юпитер");
+	planets.at(6).add(687, 568, 120536, "Сатурн");
 
 
 	for (int i = 0; i < planets.size(); i++) {
