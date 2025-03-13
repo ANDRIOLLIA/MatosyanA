@@ -1,7 +1,8 @@
 #include<iostream>
 #include <vector>
 class Planet {
-	int density, weight_10_24, diameter;
+	int density, diameter;
+	double weight_10_24;
 	std::string name;
 public:
 	Planet() {
@@ -19,8 +20,8 @@ public:
 	}
 
 	void info() {
-		std::cout << "Название: " << name << ", " << density << ", диаметр: "
-			<< diameter << ", вес: " << weight_10_24;
+		std::cout << "\nНазвание: " << name << "\nплотность: " << density << "\nдиаметр: "
+			<< diameter << "\nвес: " << weight_10_24 << std::endl;
 	}
 };
 
