@@ -60,13 +60,13 @@ int main() {
 	planets.push_back(Planet("Марс", 6794, 3933, 0.642));
 	planets.push_back(Planet("Юпитер", 142984, 1326, 1899));
 	planets.push_back(Planet("Сатурн", 120536, 687, 568));
-	planets.push_back(Planet("Урани", 51118, 1270, 86.8));
+	planets.push_back(Planet("Уран", 51118, 1270, 86.8));
 	planets.push_back(Planet("Нептун", 49528, 1638, 102));
 
 	for (int i = 0; i < planets.size(); i++) {
-		for (int j = 1; j < planets.size() - i; j++) {
-			if (planets.at(j).getMassa() < planets.at(j - 1).getMassa()) {
-				std::swap(planets.at(j), planets.at(j - 1));
+		for (int j = 0; j < planets.size() - 1 - i; j++) {
+			if (planets.at(j).getMassa() < planets.at(j + 1).getMassa()) {
+				std::swap(planets.at(j), planets.at(j + 1));
 			}
 		}
 	}
