@@ -3,7 +3,7 @@
 
 class Student {
 	std::string name;
-	int age, stud_class;
+	int age, stud_class, id;
 	static int amount_of_student;
 	bool is_men;
 
@@ -15,11 +15,14 @@ public:
 		this->amount_of_student = amount_of_student;
 		this->is_men = is_men;
 	}
-	Student(int id) {
+	Student() {
 		name = "adidas";
 		age = 0;
 		stud_class = 0;
+		is_men = true;
 		amount_of_student = id;
+		id = id;
+		id++;
 	}
 
 	Student& setAge(int age) {
@@ -52,6 +55,21 @@ public:
 		if (is_men)return "Мужчина";
 		if (!is_men)return "Женщина";
 	}
+
+	void redact() {
+		std::cout << "Введите имя: "; std::cin >> name;
+		std::cout << "Введите возраст: "; std::cin >> age;
+		std::cout << "Введите класс обучения: "; std::cin >> stud_class;
+		std::cout << "Введите пол(1/0): "; std::cin >> is_men;
+	}
+
+	void show() {
+		std::cout << "ID:" << id;
+		std::cout << "Имя: " << name;
+		std::cout << "Возраст: " << age;
+		std::cout << "Класс обучения: " << stud_class;
+		std::cout << "Пол: " << getIsMen();
+	}
 };
 
 int main() {
@@ -64,18 +82,23 @@ int main() {
 	int blades = 0, id = 1;
 
 	do {
-		std::cout << "\n1.Добавить студента\n2.Удалить студента\n3.Редактировать\n4.Вывести всех студентов\n>_"; std::cin >> blades;
+		std::cout << "\n1.Добавить студента\n2.Редактировать студента\n3.Удалить студента\n4.Вывести всех студентов\n>_"; std::cin >> blades;
 		switch(blades) {
 		case 1: {
-			students.push_back(Student(id));
+			students.push_back(Student());
 			id++;
+			break;
 		}
 		case 2: {
 			int edit_by_id;
-			std::cout << "Введите id студента: ";
+			std::cout << "Введите id студента: "; std::cin >> edit_by_id;
 			for (int i = 0; i < students.size(); i++) {
-
+				students.at(i).redact();
 			}
+			break;
+		}
+		case 3: {
+
 		}
 		}
 	} while (blades != 0);
