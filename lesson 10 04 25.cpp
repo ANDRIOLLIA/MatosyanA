@@ -9,6 +9,7 @@ public:
 	}
 	Test(int num1, int num2) :num1{ num1 }, num2{ num2 } {}
 	friend Test operator+(const Test&, const Test&);
+	
 	friend std::ostream& operator<< (std::ostream& out, const Test& obj) {
 		out << obj.num1 << " " << obj.num2;
 		return out;
@@ -21,7 +22,7 @@ public:
 	
 	Test& operator++() {
 		num1++;
-		return *this;
+		return *this;	
 	}
 
 	Test& operator++(int) {
