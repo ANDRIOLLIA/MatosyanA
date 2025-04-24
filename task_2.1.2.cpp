@@ -18,7 +18,13 @@ public:
 	Company& setCompany() {
 		std::cout << "¬ведите название компании: "; std::cin >> name;
 		std::cout << "¬ведите доходы: "; std::cin >> doxod;
+		while (doxod < 0) {
+			std::cout << "¬ведите доходы: "; std::cin >> doxod;
+		}
 		std::cout << "¬ведите расходы: "; std::cin >> rasxod;
+		while (rasxod < 0) {
+			std::cout << "¬ведите расходы: "; std::cin >> rasxod;
+		}
 		std::cout << "¬ведите государственна€ компани€ или нет(1 или 0): "; std::cin >> is_gos_company;
 		return *this;
 	}
@@ -59,13 +65,19 @@ public:
 	}
 
 	Company& setRasxod(int _rasxod) {
-		if (_rasxod < 0)setRasxod(_rasxod);
+		if (_rasxod < 0) {
+			std::cout << "«начение не может быть отрицательным";
+			return;
+		}
 		rasxod += _rasxod;
 		oborot += _rasxod;
 		return *this;
 	}
 	Company& setDoxod(int _doxod) {
-		if (_doxod < 0)setDoxod(_doxod);
+		if (_doxod < 0) {
+			std::cout << "«начение не может быть отрицательным";
+			return;
+		}
 		doxod += _doxod;
 		oborot += _doxod;
 		return *this;
