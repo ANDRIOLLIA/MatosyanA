@@ -31,7 +31,7 @@ public:
 
 	std::string getName() {return name;}
 	
-	int getDoxod() {
+	int getDoxod() const{
 		if (!is_gos_company && oborot < 5000000)return 0;
 		else if (is_gos_company)return 0;
 		return doxod;
@@ -67,7 +67,7 @@ public:
 	Company& setRasxod(int _rasxod) {
 		if (_rasxod < 0) {
 			std::cout << "Значение не может быть отрицательным";
-			return;
+			return *this;
 		}
 		rasxod += _rasxod;
 		oborot += _rasxod;
@@ -76,7 +76,7 @@ public:
 	Company& setDoxod(int _doxod) {
 		if (_doxod < 0) {
 			std::cout << "Значение не может быть отрицательным";
-			return;
+			return *this;
 		}
 		doxod += _doxod;
 		oborot += _doxod;
