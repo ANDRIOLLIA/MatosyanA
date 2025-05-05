@@ -1,74 +1,60 @@
 #include <iostream>
-#include <vector>
 
 class Body {
-	int id, amount = 0;
+	static int amount;
+	int id;
 protected:
-	int weight, a_coord, b_coord, jumping_ability;
+	int weight, x_coord, y_coord;
+	double jump_ability;
 public:
 	Body() {
-		id = amount;
-		weight = NULL;
-		a_coord = NULL;
-		b_coord = NULL;
-		jumping_ability = NULL;
-		amount++;
+		id = ++amount;
+		weight = rand() % 10;
+		if (weight < 5)weight * 0.2;
+		else weight * 0.1;
+		x_coord = rand() % 10;
+		y_coord = rand() % 10 + 1;
+		jump_ability = rand() % 10 * 0.1;
+		if (jump_ability == 0)jump_ability = 0.1;
 	}
-
 	virtual int dropIt(int force) = 0;
 	void print() {
-		std::cout << "\nID: " << id << "\nВес: " << weight << "\nА: " << a_coord << "\nВ: " << b_coord << "\nПрыгучесть: " << jumping_ability;
+		std::cout << "\nid: " << id << "\nweight: " << weight << "\nX: " << x_coord << "\nY: " << y_coord << "\njump_ability: " << jump_ability;
 	}
 };
 
-class Dice : public Body {
-	int num;
-public:
-	Dice() {
-		weight = 10;
-		a_coord = 5;
-		b_coord = 2;
-		jumping_ability = 1;
-	}
+int Body::amount = 0;
 
+class Dice : public Body {
+	double num;
+public:
+	Dice() : Body() { num = 0; }
 	int dropIt(int force) override {
-		if (force >= 0)
-			int num = rand() % 6 + 1;
-		else if (force == 1488) {
-			std::cout << "Режим шулера\n";
-			std::cout << "Введите число: "; std::cin >> num;
-		}
+		num = 1 + (5 * ((force * jump_ability) / (weight + y_coord)));
+		if (num > 6)num = 6;
+		x_coord = x_coord + rand() % 5;
 		return num;
 	}
 };
 
-class Ball : public Body{
+class Ball : public Body {
 	int jump_height;
 public:
-	Ball(){
-		weight = 7;
-		a_coord = 4;
-		b_coord = 8;
-		jumping_ability = 10;
-	}
-
-	int dropIt(int force) {
-		jump_height *= 7;
+	Ball() : Body() { jump_height = 0; }
+	int dropIt(int force) override {
+		jump_height = y_coord + (jump_ability * (force / weight));
+		x_coord = x_coord + rand() % 5 + 5;
 		return jump_height;
 	}
 };
 
 int main() {
-	system("chcp 1251");
-	srand(time(NULL));
+	system("chcp 1251"); system("cls"); srand(time(NULL));
+	Dice dice;
+	Ball ball;
 
-	std::unique_ptr<Dice> dice = std::make_unique<Dice>();
-	dice->print();
-	std::cout << dice->dropIt(4);
-
-	std::unique_ptr<Ball> ball = std::make_unique<Ball>();
-	ball->print();
-	std::cout << ball->dropIt(4);
-
-	return 0;
+	dice.print();
+	std::cout << "\nВам выпало число " << dice.dropIt(5) << std::endl;
+	ball.print();
+	std::cout << "\nМяч подпрыгнул на " << ball.dropIt(5) << " метров" << std::endl;
 }
