@@ -38,7 +38,8 @@ public:
 };
 
 class Potion : public Use {
-	int volume, is_heal;
+	int volume;
+	bool is_heal;
 public:
 	Potion() {
 		volume = 100;
@@ -61,17 +62,17 @@ public:
 		strength = 100;
 	}
 
-	void use(Use& use) {
-		use.use();
+	void use(std::shared_ptr<Use> use) {
+		use->use();
 	}
 };
 
 int main() {
 	system("chcp 1251"); system("cls");
 	Player andrey;
-	Sword sword;
-	Bow bow;
-	Potion potion;
+	std::shared_ptr<Sword> sword = std::make_shared<Sword>();
+	std::shared_ptr<Bow> bow = std::make_shared<Bow>();
+	std::shared_ptr<Potion> potion = std::make_shared<Potion>();
 	srand(time(NULL));
 	andrey.use(sword);
 	andrey.use(bow);
