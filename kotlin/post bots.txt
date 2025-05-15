@@ -1,0 +1,16 @@
+1.app
+2.bot
+3.bots
+4.client
+5.core
+
+1,2,3,4 -> 5
+4 -> 3
+3 -> 2
+1 -> 2,3,4
+2 -> 3,4
+
+|Event Driven Design |EDD
+|		     | +
+|Domain Driven Design|DDD
+

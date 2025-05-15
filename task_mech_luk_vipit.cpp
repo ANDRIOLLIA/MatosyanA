@@ -47,22 +47,24 @@ public:
 			damage = 0;
 		}
 		else if (random_status == 2)
-			std::cout << "BOW-> Стрела улетела в стратосферу, подожгла цыганское поселение и нанесла " << damage * 100 << " ед. урона по области";
+			std::cout << "BOW-> Стрела улетела в стратосферу, подожгла цыганское поселение с неграми и нанесла " << damage * 100 << " ед. урона по области";
 	}
 };
 
 class Potion : public Use {
 	int volume;
-	bool is_heal;
+	bool random_status;
 public:
 	Potion() {
 		volume = 100;
-		is_heal = rand() % 2;
+		random_status = rand() % 2;
 	}
 	void use() override {
 		std::cout << "POTION-> Вы выпили " << volume << " мл. зелья и ";
-		if (is_heal)std::cout << "исцелили 10 hp (не ноутбуков)";
-		else std::cout << "отравились";
+		if (random_status == 0) 
+			std::cout << "исцелили 10 hp (не ноутбуков)";
+		else if(random_status == 1) 
+			std::cout << "отравились";
 	}
 };
 

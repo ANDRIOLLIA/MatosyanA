@@ -1,0 +1,15 @@
+ARP - Address Resolution Protocol
+компьютер получает ip адрес, сообщает этот адрес другим устройствам, если может обработать, отправляет MAC адресс
+IP address - то, что помогает найти адресс устройства в сети
+
+DNS - Domain Namespace Server (сервер пространства доменных имен)
+
+user --google.com--> pc --SYN--> server --SYN-ACK--> pc --ACK--> server --ACK--> pc
+                                                      L--REQ--> server
+
+ICMP - Internet Control Message Protocol (протокол контрольных сообщений интернета)
+
+
+
+
+

@@ -1,0 +1,10 @@
+Reactive Manifesto
+
+publisher ----> subscriber
+    |
+    |
+    V
+subscriber
+
+Defered - отложенная операция
+Intenceptor - перехватчик
