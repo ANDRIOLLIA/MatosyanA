@@ -1,3 +1,4 @@
 ﻿  task_mech_luk_vipit.cpp
-C:\Users\106010109\source\repos\MatosyanA\MatosyanA\task_mech_luk_vipit.cpp(76,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\106010109\source\repos\MatosyanA\MatosyanA\task_mech_luk_vipit.cpp(15,39): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\106010109\source\repos\MatosyanA\MatosyanA\task_mech_luk_vipit.cpp(85,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
   MatosyanA.vcxproj -> C:\Users\106010109\source\repos\MatosyanA\x64\Debug\MatosyanA.exe
