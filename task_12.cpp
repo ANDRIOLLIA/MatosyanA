@@ -8,7 +8,7 @@ public:
 		number_of_faces = 6;
 	}
 
-	~Dice() { std::cout << " убик удален"; }
+	~Dice() { std::cout << "\n€йца"; }
 
 	int throwDice() {
 		return rand() % number_of_faces + 1;
@@ -23,10 +23,10 @@ public:
 		dice.reset();
 		std::cout << "игрок вз€л кубик";
 	}
-	void putDice(std::shared_ptr<Dice>& dice, int dice_id) {
-		dice = players_dices.at(dice_id);
-		players_dices.at(dice_id).reset();
-		std::cout << "игрок положил " << dice_id + 1 << "-й кубик";
+	void putDice(std::shared_ptr<Dice>& dice) {
+		dice = players_dices.at(players_dices.size() - 1);
+		players_dices.at(players_dices.size() - 1).reset();
+		std::cout << "игрок положил кубик";			
 	}
 	void throwAllDices() {
 		if (players_dices.empty()) {
@@ -58,11 +58,17 @@ int main() {
 	std::cout << std::endl;
 	andrey->throwAllDices();
 	std::cout << std::endl;
-	andrey->putDice(dice1, 0);
+	andrey->putDice(dice1);
+	std::cout << std::endl;	
+	andrey->putDice(dice2);
+	std::cout << std::endl;
+	andrey->putDice(dice3);
+	std::cout << std::endl;
 	std::cout << std::endl;
 	andrey->takeDice(dice1);
 	std::cout << std::endl;
 	andrey->takeDice(dice2);
 	std::cout << std::endl;
 	andrey->takeDice(dice3);
+	std::cout << std::endl;
 }
