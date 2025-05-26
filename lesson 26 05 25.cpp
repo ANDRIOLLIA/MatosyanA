@@ -21,9 +21,9 @@ public:
 	}
 };
 
-Test& testFunc() {
+Test&& testFunc() {
 	Test result(-10);
-	return result;
+	return std::move(result);
 }
 
 int main() {
