@@ -24,8 +24,8 @@ public:
 		std::cout << "игрок взял кубик";
 	}
 	void putDice(std::shared_ptr<Dice>& dice) {
-		dice = players_dices.at(players_dices.size() - 1);
-		players_dices.at(players_dices.size() - 1).reset();
+		dice = players_dices.back();
+		players_dices.pop_back();
 		std::cout << "игрок положил кубик";			
 	}
 	void throwAllDices() {
@@ -34,6 +34,9 @@ public:
 		}
 		else {
 			for (int i = 0; i < players_dices.size(); i++) {
+				if (players_dices.at(i) == nullptr) {
+					continue;
+				}
 				int res = players_dices.at(i)->throwDice();
 				std::cout << "на кубике " << i + 1 << " выпало число: " << res << std::endl;
 			}
@@ -62,6 +65,7 @@ int main() {
 	std::cout << std::endl;	
 	andrey->putDice(dice2);
 	std::cout << std::endl;
+	andrey->throwAllDices();
 	andrey->putDice(dice3);
 	std::cout << std::endl;
 	std::cout << std::endl;
