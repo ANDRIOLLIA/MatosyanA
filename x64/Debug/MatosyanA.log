@@ -1,3 +1,2 @@
-﻿  lesson 26 05 25.cpp
-C:\Users\106010109\source\repos\MatosyanA\MatosyanA\lesson 26 05 25.cpp(26,1): warning C4172: возвращаемый адрес локальной переменной или временного : result
-  MatosyanA.vcxproj -> C:\Users\106010109\source\repos\MatosyanA\x64\Debug\MatosyanA.exe
+﻿  task_7.cpp
+C:\Users\106010109\source\repos\MatosyanA\MatosyanA\task_7.cpp(20,26): error C2064: результатом вычисления фрагмента не является функция, принимающая 0 аргументов
