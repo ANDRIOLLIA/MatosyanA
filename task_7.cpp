@@ -1,30 +1,59 @@
 #include <iostream>
 
-class MyArray {
-	int* address;
-	int size;
+class MyArr {
+private:
+    int* data;
+    size_t size;
 public:
-	MyArray() {
-		size = rand() % 10;
-	}
-	MyArray(int size) {
-		this->size = size;
-	}
-	~MyArray() {
-		std::cout << "\nyaica\n";
-	}
-	const int& operator[] (int index) const{
-		return address[index];	
-	}
+    MyArr() : data(nullptr), size(0) {}
+    MyArr(size_t n) : data(new int[n] {}), size(n) {}
+    ~MyArr() { std::cout << "yaica"; }
+    MyArr(MyArr&& other) : data(other.data), size(other.size) {
+        other.data = nullptr;
+        other.size = 0;
+    }
+    MyArr& operator=(MyArr&& a) {
+        if (this != &a) {
+            delete[] data;
+            data = a.data;
+            size = a.size;
+            a.data = nullptr;
+            a.size = 0;
+        }
+        return *this;
+    }
+    MyArr(const MyArr&) = delete;
+    MyArr& operator=(const MyArr&) = delete;
+    int& operator[](size_t index) {
+        return data[index];
+    }
 
-	friend std::ostream& operator<< (std::ostream& out, const MyArray& arr) {
-		for (int i = 0; i < arr.size; i++) {
-			out << arr.address[i] << " ";
-		}
-		return out;
-	}
+    const int& operator[](size_t index) const {
+        return data[index];
+    }
+    
+    friend std::ostream& operator<<(std::ostream& out, const MyArr& arr) {
+        for (size_t i = 0; i < arr.size; ++i) {
+            out << arr.data[i] << " ";
+        }
+        return out;
+    }
+
+    int getSize() const { return size; }
 };
 
-int main() {
+MyArr createArr() {
+    MyArr arr(5);
+    for (int i = 0; i < arr.getSize(); ++i) {
+        arr[i] = rand() % 10;
+    }
+    return arr;
+}
 
+int main() {
+    MyArr a;
+    a = createArr();
+
+    std::cout << "arr: " << a << std::endl;
+    return 0;
 }
