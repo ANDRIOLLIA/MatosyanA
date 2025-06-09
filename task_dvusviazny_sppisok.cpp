@@ -2,16 +2,22 @@
 
 class Node {
 public:
-    int data;
-    Node* next;
-    Node* prev;
+    std::shared_ptr<int> data;
+    std::shared_ptr<Node> next;
+    std::shared_ptr<Node> prev;
 
-    Node(int val) : data(val), next(nullptr), prev(nullptr) {}
+    Node(std::shared_ptr<int> val) : data(val), next(nullptr), prev(nullptr) {}
+    Node() : data(0), next(nullptr), prev(nullptr) {}
+    ~Node() {
+        delete &data;
+        delete &next;
+        delete &prev;
+    }
 };
 
 class List {
-    Node* first;
-    Node* last;
+    std::shared_ptr<Node> first;
+    std::shared_ptr<Node> last;
     int size;
 
 public:
@@ -22,43 +28,43 @@ public:
     }
 
     void pushBack(int val) {
-        Node* newNode = new Node(val);
+        std::shared_ptr<Node> node = std::make_shared<Node>();
         if (first == nullptr) {
-            first = last = newNode;
+            first = last = node;
         }
         else {
-            last->next = newNode;
-            newNode->prev = last;
-            last = newNode;
+            last->next = node;
+            node->prev = last;
+            last = node;
         }
         ++size;
     }
 
     void popBack() {
         if (last == nullptr) return;
-        Node* toDelete = last;
+        std::shared_ptr<Node> to_delete = last;
         last = last->prev;
         if (last) last->next = nullptr;
         else first = nullptr;
-        delete toDelete;
+        delete &to_delete;
         --size;
     }
 
     int& operator[](int index) {
         if (index < 0 || index >= size) {
-            return first->data;
+            return *first->data;
         }
-        Node* current = first;
+        std::shared_ptr<Node> current = first;
         for (int i = 0; i < index; ++i)
             current = current->next;
-        return current->data;
+        return *current->data;
     }
 
     void clear() {
-        Node* current = first;
+        std::shared_ptr<Node> current = first;
         while (current != nullptr) {
-            Node* nextNode = current->next;
-            delete current;
+            std::shared_ptr<Node> nextNode = current->next;
+            delete &current;
             current = nextNode;
         }
         first = nullptr;
@@ -67,7 +73,7 @@ public:
     }
 
     friend std::ostream& operator<<(std::ostream& out, List& list) {
-        Node* current = list.first;
+        std::shared_ptr<Node> current = list.first;
         while (current != nullptr) {
             out << current->data << ' ';
             current = current->next;
@@ -82,6 +88,5 @@ int main() {
     for (int i = 0; i < 1000000; ++i) {
         l.pushBack(i);
     }
-    l.popBack();
     return 0;
 }
