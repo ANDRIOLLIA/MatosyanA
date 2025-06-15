@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="билеты практика\Задание 6. Компании, выбрасывание исключений.cpp" />
+    <ClCompile Include="билеты практика\Задание 9.Отряды. Перегрузка ввода-вывода, приведения к типу.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
