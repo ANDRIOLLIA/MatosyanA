@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="билеты практика\Задание 10.Отряды. Перегрузка сложения, вычитания, проверки на равенство.cpp">
+    <ClCompile Include="task_dvusviazny_sppisok.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
