@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="task_dvusviazny_sppisok.cpp">
+    <ClCompile Include="task_stek.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
