@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="lesson 16 06 25.cpp">
+    <ClCompile Include="билеты практика\Задание 14. Кубик и мячик.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
