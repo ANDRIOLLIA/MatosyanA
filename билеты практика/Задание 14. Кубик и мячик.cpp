@@ -2,30 +2,40 @@
 
 class Body {
 protected:
-	int x, y, z;
-	float jumpable = rand() % 1 * 0.1;
+    int x = 0, y = 0, z = 0;
+    float jumpable;
 public:
-	virtual int dropIt(int force) = 0;
+    Body() {
+        jumpable = rand() % 6 + 1;
+    }
+    virtual int dropIt(int force) = 0;
 };
 
-class Dice : public Body{
-	int num;
+class Dice : public Body {
+    int num = 1;
 public:
-	int dropIt(int force) override {
-		int total = force * jumpable * y;
-		for (int i = 0; i < total; i++) {
-			num = i;
-			if (num > 6) num = 1;
-		}
-		return num;
-	}
+    int dropIt(int force) override {
+        int total = force * jumpable * y;
+        num = (total % 6) + 1;
+        return num;
+    }
 };
 
 class Ball : public Body {
-
+    int jump_height = 0;
+public:
+    int dropIt(int force) override {
+        if (y == 0) jump_height = 0;
+        else if (force == 0) jump_height = y * jumpable;
+        else jump_height = y * jumpable * force;
+        return jump_height;
+    }
 };
 
 int main() {
-	Dice dice;
-	std::cout << dice.dropIt(10);
+    srand(time(NULL));
+    Dice dice;
+    Ball ball;
+    std::cout << dice.dropIt(10) << std::endl;
+    std::cout << ball.dropIt(10);
 }

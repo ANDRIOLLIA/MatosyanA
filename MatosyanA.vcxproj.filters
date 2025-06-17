@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="task_binary_tree.cpp">
+    <ClCompile Include="билеты практика\Задание 17. Игрок и кубики.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
