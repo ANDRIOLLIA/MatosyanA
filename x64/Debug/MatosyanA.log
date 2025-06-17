@@ -1,4 +1,5 @@
-﻿  Задание 14. Кубик и мячик.cpp
-C:\Users\106010109\source\repos\билеты практика\Задание 14. Кубик и мячик.cpp(5,30): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
-C:\Users\106010109\source\repos\билеты практика\Задание 14. Кубик и мячик.cpp(20,13): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
-  MatosyanA.vcxproj -> C:\Users\106010109\source\repos\x64\Debug\MatosyanA.exe
+﻿  task_binary_tree.cpp
+C:\Users\106010109\source\repos\task_binary_tree.cpp(24,1): error C2679: бинарный ">": не найден оператор, принимающий правый операнд типа "std::shared_ptr<int>" (или приемлемое преобразование отсутствует)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\memory(1309,17): message : может быть "bool std::operator ><int>(std::nullptr_t,const std::shared_ptr<int> &) noexcept"
+C:\Users\106010109\source\repos\task_binary_tree.cpp(24,1): message : или       "встроенный оператор C++>(int, int)"
+C:\Users\106010109\source\repos\task_binary_tree.cpp(24,1): message : при попытке сопоставить список аргументов "(int, std::shared_ptr<int>)"

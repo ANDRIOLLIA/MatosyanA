@@ -1,26 +1,21 @@
 #include <iostream>
 
 class Body {
+protected:
 	int x, y, z;
 	float jumpable = rand() % 1 * 0.1;
 public:
 	virtual int dropIt(int force) = 0;
-	float getJumpable() const {
-		return jumpable;
-	}
-	int getY() const {
-		return y;
-	}
 };
 
 class Dice : public Body{
 	int num;
 public:
 	int dropIt(int force) override {
-		int total = force * getJumpable() * getY();
+		int total = force * jumpable * y;
 		for (int i = 0; i < total; i++) {
 			num = i;
-			if (num > 6 || num == 0) num = 1;
+			if (num > 6) num = 1;
 		}
 		return num;
 	}
