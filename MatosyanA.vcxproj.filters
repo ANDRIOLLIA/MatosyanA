@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="билеты практика\Задание 17. Игрок и кубики.cpp">
+    <ClCompile Include="билеты практика\Задание 19. Односвязный список. Добавление, обращение.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
